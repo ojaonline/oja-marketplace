@@ -319,4 +319,27 @@
   </footer>
 
 </body>
+  </footer>
+
+<script>
+let cart = [];
+
+document.querySelectorAll(".product button").forEach(button => {
+    button.addEventListener("click", function() {
+        const product = this.closest(".product");
+        const name = product.querySelector("h3").textContent;
+        const price = product.querySelector(".price").textContent;
+
+        cart.push({
+            name: name,
+            price: price
+        });
+
+        alert(name + " has been added to your cart! 🛒");
+    });
+});
+</script>
+
+</body>
+</html>
         </html>
