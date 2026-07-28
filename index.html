@@ -385,7 +385,18 @@
         <h2>🛒 Your OJA Cart</h2>
         <button onclick="closeCart()">✕</button>
     </div>
-<!-- SELLER FORM -->
+</div>
+    <div id="cart-items"></div>
+
+    <div class="cart-total">
+        <strong>Total: $<span id="cart-total">0</span></strong>
+    </div>
+
+    <button class="checkout-button" onclick="checkout()">
+        Proceed to Checkout
+    </button>
+</div>
+  <!-- SELLER FORM -->
 <div id="seller-panel" class="seller-panel">
 
     <div class="seller-header">
@@ -420,18 +431,7 @@
         </button>
 
     </form>
-
-</div>
-    <div id="cart-items"></div>
-
-    <div class="cart-total">
-        <strong>Total: $<span id="cart-total">0</span></strong>
-    </div>
-
-    <button class="checkout-button" onclick="checkout()">
-        Proceed to Checkout
-    </button>
-</div>
+  
   <footer>
     <p>© 2026 OJA Marketplace. All Rights Reserved.</p>
     <p>Shop More. Save More. Live More.</p>
