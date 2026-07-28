@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>OJA | Shop More. Save More. Live More.</title>
-
-  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>OJA | Shop More. Save More. Live More.</title>  <style>
     * {
       margin: 0;
       padding: 0;
@@ -328,6 +323,11 @@
       font-weight: bold;
     }
 
+    .submit-seller:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
+
     footer {
       background: #063d27;
       color: white;
@@ -374,359 +374,306 @@
         font-size: 20px;
       }
     }
-  </style>
-</head>
+  </style></head><body>  <!-- HEADER -->  <header><div class="logo">OJA</div>
 
-<body>
+<div class="search-box">
+  <input type="text" placeholder="Search for products...">
+  <button>Search</button>
+</div>
 
-  <!-- HEADER -->
+<button class="sell-button" onclick="showSellerForm()">
+  Sell on OJA
+</button>
 
-  <header>
+<div class="cart" onclick="showCart()">
+  🛒 <span id="cart-count">0</span>
+</div>
 
-    <div class="logo">OJA</div>
+  </header>  <!-- HERO SECTION -->  <section class="hero"><h1>Shop More. Save More. Live More.</h1>
 
-    <div class="search-box">
-      <input type="text" placeholder="Search for products...">
-      <button>Search</button>
+<p>
+  Discover amazing products from trusted sellers on OJA.
+</p>
+
+<button onclick="scrollToProducts()">
+  Shop Now
+</button>
+
+  </section>  <!-- CATEGORIES -->  <section class="section"><h2>Shop by Category</h2>
+
+<div class="categories">
+
+  <div class="category">
+    <div class="category-icon">👗</div>
+    <p>Fashion</p>
+  </div>
+
+  <div class="category">
+    <div class="category-icon">📱</div>
+    <p>Electronics</p>
+  </div>
+
+  <div class="category">
+    <div class="category-icon">🏠</div>
+    <p>Home & Kitchen</p>
+  </div>
+
+  <div class="category">
+    <div class="category-icon">💄</div>
+    <p>Beauty & Health</p>
+  </div>
+
+  <div class="category">
+    <div class="category-icon">⚽</div>
+    <p>Sports</p>
+  </div>
+
+  <div class="category">
+    <div class="category-icon">🚗</div>
+    <p>Cars & Vehicles</p>
+  </div>
+
+  <div class="category">
+    <div class="category-icon">🏡</div>
+    <p>Property</p>
+  </div>
+
+  <div class="category">
+    <div class="category-icon">🛠️</div>
+    <p>Services</p>
+  </div>
+
+</div>
+
+  </section>  <!-- PRODUCTS -->  <section class="section" id="products-section"><h2>Featured Products</h2>
+
+<div class="products">
+
+  <div class="product">
+
+    <div class="product-image">
+      📱
     </div>
 
-    <button class="sell-button" onclick="showSellerForm()">
-      Sell on OJA
-    </button>
+    <div class="product-info">
 
-    <div class="cart" onclick="showCart()">
-      🛒 <span id="cart-count">0</span>
-    </div>
+      <h3>Smartphone</h3>
 
-  </header>
-
-
-  <!-- HERO SECTION -->
-
-  <section class="hero">
-
-    <h1>Shop More. Save More. Live More.</h1>
-
-    <p>
-      Discover amazing products from trusted sellers on OJA.
-    </p>
-
-    <button>
-      Shop Now
-    </button>
-
-  </section>
-
-
-  <!-- CATEGORIES -->
-
-  <section class="section">
-
-    <h2>Shop by Category</h2>
-
-    <div class="categories">
-
-      <div class="category">
-        <div class="category-icon">👗</div>
-        <p>Fashion</p>
+      <div class="price">
+        $250
       </div>
 
-      <div class="category">
-        <div class="category-icon">📱</div>
-        <p>Electronics</p>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">🏠</div>
-        <p>Home & Kitchen</p>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">💄</div>
-        <p>Beauty & Health</p>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">⚽</div>
-        <p>Sports</p>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">🚗</div>
-        <p>Cars & Vehicles</p>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">🏡</div>
-        <p>Property</p>
-      </div>
-
-      <div class="category">
-        <div class="category-icon">🛠️</div>
-        <p>Services</p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- PRODUCTS -->
-
-  <section class="section">
-
-    <h2>Featured Products</h2>
-
-    <div class="products">
-
-      <div class="product">
-
-        <div class="product-image">
-          📱
-        </div>
-
-        <div class="product-info">
-
-          <h3>Smartphone</h3>
-
-          <div class="price">
-            $250
-          </div>
-
-          <button>
-            Add to Cart
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="product">
-
-        <div class="product-image">
-          👟
-        </div>
-
-        <div class="product-info">
-
-          <h3>Fashion Sneakers</h3>
-
-          <div class="price">
-            $45
-          </div>
-
-          <button>
-            Add to Cart
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="product">
-
-        <div class="product-image">
-          🎧
-        </div>
-
-        <div class="product-info">
-
-          <h3>Wireless Headphones</h3>
-
-          <div class="price">
-            $35
-          </div>
-
-          <button>
-            Add to Cart
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="product">
-
-        <div class="product-image">
-          ⌚
-        </div>
-
-        <div class="product-info">
-
-          <h3>Smart Watch</h3>
-
-          <div class="price">
-            $60
-          </div>
-
-          <button>
-            Add to Cart
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CART PANEL -->
-
-  <div id="cart-panel" class="cart-panel">
-
-    <div class="cart-header">
-
-      <h2>🛒 Your OJA Cart</h2>
-
-      <button onclick="closeCart()">
-        ✕
+      <button>
+        Add to Cart
       </button>
 
     </div>
-
-    <div id="cart-items"></div>
-
-    <div class="cart-total">
-
-      <strong>
-        Total: $<span id="cart-total">0</span>
-      </strong>
-
-    </div>
-
-    <button class="checkout-button" onclick="checkout()">
-      Proceed to Checkout
-    </button>
 
   </div>
 
 
-  <!-- SELLER PANEL -->
+  <div class="product">
 
-  <div id="seller-panel" class="seller-panel">
+    <div class="product-image">
+      👟
+    </div>
 
-    <div class="seller-header">
+    <div class="product-info">
 
-      <h2>🏪 Sell on OJA</h2>
+      <h3>Fashion Sneakers</h3>
 
-      <button onclick="closeSellerForm()">
-        ✕
+      <div class="price">
+        $45
+      </div>
+
+      <button>
+        Add to Cart
       </button>
 
     </div>
 
-    <p>
-      Join OJA and reach more customers with your products.
-    </p>
-
-    <form onsubmit="submitSellerForm(event)">
-
-      <label>
-        Full Name
-      </label>
-
-      <input
-        type="text"
-        id="seller-name"
-        placeholder="Enter your full name"
-        required
-      >
+  </div>
 
 
-      <label>
-        Phone / WhatsApp Number
-      </label>
+  <div class="product">
 
-      <input
-        type="tel"
-        id="seller-phone"
-        placeholder="08012345678"
-        required
-      >
+    <div class="product-image">
+      🎧
+    </div>
 
+    <div class="product-info">
 
-      <label>
-        Location
-      </label>
+      <h3>Wireless Headphones</h3>
 
-      <input
-        type="text"
-        id="seller-location"
-        placeholder="City / State"
-        required
-      >
+      <div class="price">
+        $35
+      </div>
 
-
-      <label>
-        Product Name
-      </label>
-
-      <input
-        type="text"
-        id="product-name"
-        placeholder="What are you selling?"
-        required
-      >
-
-
-      <label>
-        Product Description
-      </label>
-
-      <textarea
-        id="product-description"
-        placeholder="Describe your product"
-        required
-      ></textarea>
-
-
-      <label>
-        Your Expected Price
-      </label>
-
-      <input
-        type="number"
-        id="product-price"
-        placeholder="Enter price"
-        required
-      >
-
-
-      <button
-        type="submit"
-        class="submit-seller"
-      >
-        Submit Product
+      <button>
+        Add to Cart
       </button>
 
-    </form>
+    </div>
 
   </div>
 
 
-  <!-- FOOTER -->
+  <div class="product">
 
-  <footer>
+    <div class="product-image">
+      ⌚
+    </div>
 
-    <p>
-      © 2026 OJA Marketplace. All Rights Reserved.
-    </p>
+    <div class="product-info">
 
-    <p>
-      Shop More. Save More. Live More.
-    </p>
+      <h3>Smart Watch</h3>
 
-  </footer>
+      <div class="price">
+        $60
+      </div>
 
+      <button>
+        Add to Cart
+      </button>
 
-  <!-- JAVASCRIPT -->
+    </div>
 
-  <script>
+  </div>
+
+</div>
+
+  </section>  <!-- CART PANEL -->  <div id="cart-panel" class="cart-panel"><div class="cart-header">
+
+  <h2>🛒 Your OJA Cart</h2>
+
+  <button onclick="closeCart()">
+    ✕
+  </button>
+
+</div>
+
+<div id="cart-items"></div>
+
+<div class="cart-total">
+
+  <strong>
+    Total: $<span id="cart-total">0</span>
+  </strong>
+
+</div>
+
+<button class="checkout-button" onclick="checkout()">
+  Proceed to Checkout
+</button>
+
+  </div>  <!-- SELLER PANEL -->  <div id="seller-panel" class="seller-panel"><div class="seller-header">
+
+  <h2>🏪 Sell on OJA</h2>
+
+  <button onclick="closeSellerForm()">
+    ✕
+  </button>
+
+</div>
+
+<p>
+  Join OJA and reach more customers with your products.
+</p>
+
+<form onsubmit="submitSellerForm(event)">
+
+  <label>
+    Full Name
+  </label>
+
+  <input
+    type="text"
+    id="seller-name"
+    placeholder="Enter your full name"
+    required
+  >
+
+  <label>
+    Phone / WhatsApp Number
+  </label>
+
+  <input
+    type="tel"
+    id="seller-phone"
+    placeholder="08012345678"
+    required
+  >
+
+  <label>
+    Location
+  </label>
+
+  <input
+    type="text"
+    id="seller-location"
+    placeholder="City / State"
+    required
+  >
+
+  <label>
+    Product Name
+  </label>
+
+  <input
+    type="text"
+    id="product-name"
+    placeholder="What are you selling?"
+    required
+  >
+
+  <label>
+    Product Description
+  </label>
+
+  <textarea
+    id="product-description"
+    placeholder="Describe your product"
+    required
+  ></textarea>
+
+  <label>
+    Your Expected Price
+  </label>
+
+  <input
+    type="number"
+    id="product-price"
+    placeholder="Enter price"
+    required
+  >
+
+  <button
+    type="submit"
+    class="submit-seller"
+    id="submit-seller-button"
+  >
+    Submit Product
+  </button>
+
+</form>
+
+  </div>  <!-- FOOTER -->  <footer><p>
+  © 2026 OJA Marketplace. All Rights Reserved.
+</p>
+
+<p>
+  Shop More. Save More. Live More.
+</p>
+
+  </footer>  <!-- JAVASCRIPT -->  <script>
+
+    /*
+      OJA GOOGLE APPS SCRIPT WEB APP URL
+    */
+
+    const GOOGLE_SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbwpNQIhVHQvx5nZwSSppvvPyqgLYwqNongTIxcjhaio1IgnfsKT4JOQ3DGZKiHoYenEGg/exec";
+
 
     let cart = [];
 
@@ -930,45 +877,166 @@
     }
 
 
-    /* SUBMIT SELLER FORM */
+    /* SHOP NOW BUTTON */
 
-    function submitSellerForm(event) {
+    function scrollToProducts() {
+
+      document
+        .getElementById("products-section")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    /* SUBMIT SELLER FORM TO GOOGLE SHEETS */
+
+    async function submitSellerForm(event) {
 
       event.preventDefault();
+
+
+      const submitButton =
+        document.getElementById(
+          "submit-seller-button"
+        );
 
 
       const sellerName =
         document
           .getElementById("seller-name")
-          .value;
+          .value
+          .trim();
+
+
+      const sellerPhone =
+        document
+          .getElementById("seller-phone")
+          .value
+          .trim();
+
+
+      const sellerLocation =
+        document
+          .getElementById("seller-location")
+          .value
+          .trim();
+
 
       const productName =
         document
           .getElementById("product-name")
-          .value;
+          .value
+          .trim();
 
 
-      alert(
-
-        "Thank you, " +
-        sellerName +
-        "!\n\n" +
-
-        "Your product '" +
-        productName +
-        "' has been submitted to OJA for review."
-
-      );
+      const productDescription =
+        document
+          .getElementById("product-description")
+          .value
+          .trim();
 
 
-      event.target.reset();
+      const productPrice =
+        document
+          .getElementById("product-price")
+          .value
+          .trim();
 
 
-      closeSellerForm();
+      const sellerData = {
+
+        name: sellerName,
+
+        phone: sellerPhone,
+
+        location: sellerLocation,
+
+        product: productName,
+
+        description: productDescription,
+
+        price: productPrice,
+
+        image: ""
+
+      };
+
+
+      submitButton.disabled = true;
+
+      submitButton.textContent =
+        "Submitting...";
+
+
+      try {
+
+        await fetch(
+          GOOGLE_SCRIPT_URL,
+          {
+
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+              "Content-Type":
+                "text/plain;charset=utf-8"
+            },
+
+            body:
+              JSON.stringify(sellerData)
+
+          }
+        );
+
+
+        alert(
+
+          "Thank you, " +
+          sellerName +
+          "! 🎉\n\n" +
+
+          "Your product '" +
+          productName +
+          "' has been submitted successfully to OJA.\n\n" +
+
+          "Our team will review your submission and contact you."
+
+        );
+
+
+        event.target.reset();
+
+        closeSellerForm();
+
+
+      } catch (error) {
+
+        console.error(
+          "Submission error:",
+          error
+        );
+
+
+        alert(
+
+          "Sorry, your submission could not be completed.\n\n" +
+
+          "Please check your internet connection and try again."
+
+        );
+
+      }
+
+
+      submitButton.disabled = false;
+
+      submitButton.textContent =
+        "Submit Product";
 
     }
 
-  </script>
-
-</body>
+  </script></body>
 </html>
