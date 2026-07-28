@@ -337,9 +337,28 @@ document.querySelectorAll(".product button").forEach(button => {
             price: price
         });
 
+        document.getElementById("cart-count").textContent = cart.length;
+
         alert(name + " has been added to your cart! 🛒");
     });
 });
+
+function showCart() {
+    if (cart.length === 0) {
+        alert("Your OJA cart is empty! 🛒");
+        return;
+    }
+
+    let message = "🛒 YOUR OJA CART\n\n";
+
+    cart.forEach((item, index) => {
+        message += (index + 1) + ". " + item.name + " - " + item.price + "\n";
+    });
+
+    message += "\nYou have " + cart.length + " item(s) in your cart.";
+
+    alert(message);
+}
 </script>
 
 </body>
