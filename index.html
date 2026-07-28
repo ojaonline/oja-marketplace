@@ -314,7 +314,23 @@
 
     </div>
   </section>
+<!-- CART PANEL -->
+<div id="cart-panel" class="cart-panel">
+    <div class="cart-header">
+        <h2>🛒 Your OJA Cart</h2>
+        <button onclick="closeCart()">✕</button>
+    </div>
 
+    <div id="cart-items"></div>
+
+    <div class="cart-total">
+        <strong>Total: $<span id="cart-total">0</span></strong>
+    </div>
+
+    <button class="checkout-button" onclick="checkout()">
+        Proceed to Checkout
+    </button>
+</div>
   <footer>
     <p>© 2026 OJA Marketplace. All Rights Reserved.</p>
     <p>Shop More. Save More. Live More.</p>
