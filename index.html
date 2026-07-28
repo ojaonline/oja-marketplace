@@ -408,7 +408,8 @@ document.querySelectorAll(".product button").forEach(button => {
     button.addEventListener("click", function() {
         const product = this.closest(".product");
         const name = product.querySelector("h3").textContent;
-        const price = product.querySelector(".price").textContent;
+        const priceText = product.querySelector(".price").textContent;
+        const price = parseFloat(priceText.replace("$", ""));
 
         cart.push({
             name: name,
@@ -422,20 +423,64 @@ document.querySelectorAll(".product button").forEach(button => {
 });
 
 function showCart() {
+    const panel = document.getElementById("cart-panel");
+    panel.style.display = "block";
+    updateCart();
+}
+
+function closeCart() {
+    document.getElementById("cart-panel").style.display = "none";
+}
+
+function updateCart() {
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    cartItems.innerHTML = "";
+
     if (cart.length === 0) {
-        alert("Your OJA cart is empty! 🛒");
+        cartItems.innerHTML = "<p>Your cart is empty.</p>";
+        cartTotal.textContent = "0";
         return;
     }
 
-    let message = "🛒 YOUR OJA CART\n\n";
+    let total = 0;
 
     cart.forEach((item, index) => {
-        message += (index + 1) + ". " + item.name + " - " + item.price + "\n";
+        total += item.price;
+
+        cartItems.innerHTML += `
+            <div class="cart-item">
+                <div>
+                    <strong>${item.name}</strong>
+                    <br>
+                    $${item.price}
+                </div>
+                <button onclick="removeFromCart(${index})">
+                    Remove
+                </button>
+            </div>
+        `;
     });
 
-    message += "\nYou have " + cart.length + " item(s) in your cart.";
+    cartTotal.textContent = total.toFixed(2);
+}
 
-    alert(message);
+function removeFromCart(index) {
+    cart.splice(index, 1);
+
+    document.getElementById("cart-count").textContent = cart.length;
+
+    updateCart();
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    alert("Checkout is coming soon! 🛍️");
 }
 </script>
 
