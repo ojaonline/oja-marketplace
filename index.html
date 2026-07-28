@@ -2,6 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>OJA | Shop More. Save More. Live More.</title>  <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -13,6 +14,13 @@
       background: #f7f7f7;
       color: #222;
     }
+
+    button {
+      cursor: pointer;
+    }
+
+
+    /* HEADER */
 
     header {
       background: #ffffff;
@@ -54,7 +62,6 @@
       color: white;
       border: none;
       border-radius: 0 8px 8px 0;
-      cursor: pointer;
     }
 
     .cart {
@@ -69,10 +76,25 @@
       border: none;
       padding: 10px 15px;
       border-radius: 6px;
-      cursor: pointer;
       font-weight: bold;
       white-space: nowrap;
     }
+
+
+    /* ADMIN BUTTON */
+
+    .admin-button {
+      background: #063d27;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+
+    /* HERO */
 
     .hero {
       background: linear-gradient(135deg, #087443, #0b9256);
@@ -98,9 +120,11 @@
       color: white;
       border-radius: 7px;
       font-size: 16px;
-      cursor: pointer;
       font-weight: bold;
     }
+
+
+    /* GENERAL SECTIONS */
 
     .section {
       padding: 40px 5%;
@@ -110,6 +134,9 @@
       margin-bottom: 25px;
       color: #087443;
     }
+
+
+    /* CATEGORIES */
 
     .categories {
       display: grid;
@@ -135,6 +162,9 @@
       font-size: 35px;
       margin-bottom: 10px;
     }
+
+
+    /* PRODUCTS */
 
     .products {
       display: grid;
@@ -180,39 +210,49 @@
       background: #087443;
       color: white;
       border-radius: 6px;
-      cursor: pointer;
     }
+
 
     /* CART PANEL */
 
-    .cart-panel {
+    .cart-panel,
+    .seller-panel,
+    .admin-login-panel,
+    .admin-dashboard {
       display: none;
       position: fixed;
       top: 0;
       right: 0;
       width: 90%;
-      max-width: 420px;
+      max-width: 500px;
       height: 100vh;
       background: white;
       z-index: 1000;
-      box-shadow: -5px 0 20px rgba(0,0,0,0.3);
       padding: 20px;
       overflow-y: auto;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.3);
     }
 
-    .cart-header {
+
+    /* CART */
+
+    .cart-header,
+    .seller-header,
+    .admin-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #ddd;
       padding-bottom: 15px;
+      margin-bottom: 20px;
     }
 
-    .cart-header button {
+    .cart-header button,
+    .seller-header button,
+    .admin-header button {
       background: none;
       border: none;
       font-size: 25px;
-      cursor: pointer;
     }
 
     .cart-item {
@@ -230,7 +270,6 @@
       border: none;
       padding: 5px 10px;
       border-radius: 5px;
-      cursor: pointer;
     }
 
     .cart-total {
@@ -246,42 +285,13 @@
       border: none;
       border-radius: 8px;
       font-size: 18px;
-      cursor: pointer;
     }
 
-    /* SELLER PANEL */
 
-    .seller-panel {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 90%;
-      max-width: 450px;
-      height: 100vh;
-      background: white;
-      z-index: 1100;
-      padding: 20px;
-      overflow-y: auto;
-      box-shadow: -5px 0 20px rgba(0,0,0,0.3);
-    }
-
-    .seller-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+    /* SELLER FORM */
 
     .seller-header h2 {
       color: #087443;
-    }
-
-    .seller-header button {
-      background: none;
-      border: none;
-      font-size: 25px;
-      cursor: pointer;
     }
 
     .seller-panel p {
@@ -289,14 +299,16 @@
       line-height: 1.5;
     }
 
-    .seller-panel label {
+    .seller-panel label,
+    .admin-login-panel label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
 
     .seller-panel input,
-    .seller-panel textarea {
+    .seller-panel textarea,
+    .admin-login-panel input {
       width: 100%;
       padding: 12px;
       margin-top: 5px;
@@ -310,7 +322,8 @@
       resize: vertical;
     }
 
-    .submit-seller {
+    .submit-seller,
+    .admin-login-button {
       width: 100%;
       margin-top: 25px;
       padding: 15px;
@@ -319,23 +332,170 @@
       border: none;
       border-radius: 7px;
       font-size: 16px;
-      cursor: pointer;
       font-weight: bold;
     }
 
-    .submit-seller:disabled {
-      background: #999;
-      cursor: not-allowed;
+
+    /* ADMIN LOGIN */
+
+    .admin-login-panel {
+      max-width: 400px;
     }
 
-    .status-message {
-      display: none;
-      margin-top: 15px;
-      padding: 12px;
-      border-radius: 6px;
+    .admin-login-panel h2 {
+      color: #087443;
+      margin-bottom: 10px;
+    }
+
+    .admin-login-panel p {
+      color: #666;
+      margin-bottom: 20px;
       line-height: 1.5;
+    }
+
+    .login-error {
+      display: none;
+      background: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 15px;
       text-align: center;
     }
+
+
+    /* ADMIN DASHBOARD */
+
+    .admin-dashboard {
+      width: 100%;
+      max-width: none;
+      z-index: 2000;
+      background: #f5f7f6;
+    }
+
+    .admin-header h2 {
+      color: #087443;
+    }
+
+    .admin-logout {
+      background: #d9534f;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .dashboard-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .dashboard-card .icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .dashboard-card h3 {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .dashboard-card strong {
+      font-size: 28px;
+      color: #087443;
+    }
+
+
+    /* ADMIN MENU */
+
+    .admin-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .admin-menu button {
+      background: white;
+      border: none;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 16px;
+      font-weight: bold;
+      color: #087443;
+    }
+
+    .admin-menu button:hover {
+      background: #087443;
+      color: white;
+    }
+
+
+    /* ADMIN TABLE */
+
+    .admin-section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      overflow-x: auto;
+    }
+
+    .admin-section h3 {
+      color: #087443;
+      margin-bottom: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 650px;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background: #f5f7f6;
+      color: #087443;
+    }
+
+    .approve-btn {
+      background: #087443;
+      color: white;
+      border: none;
+      padding: 7px 10px;
+      border-radius: 5px;
+    }
+
+    .reject-btn {
+      background: #d9534f;
+      color: white;
+      border: none;
+      padding: 7px 10px;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+
+
+    /* FOOTER */
 
     footer {
       background: #063d27;
@@ -348,6 +508,9 @@
     footer p {
       margin: 5px 0;
     }
+
+
+    /* MOBILE */
 
     @media (max-width: 700px) {
 
@@ -374,7 +537,8 @@
         font-size: 16px;
       }
 
-      .sell-button {
+      .sell-button,
+      .admin-button {
         padding: 8px 10px;
         font-size: 12px;
       }
@@ -382,23 +546,50 @@
       .cart {
         font-size: 20px;
       }
-    }
-  </style></head><body>  <!-- HEADER -->  <header><div class="logo">OJA</div>
 
-<div class="search-box">
-  <input type="text" placeholder="Search for products...">
-  <button>Search</button>
+    }
+
+  </style></head><body>  <!-- HEADER -->  <header><div class="logo">
+  OJA
 </div>
 
-<button class="sell-button" onclick="showSellerForm()">
+<div class="search-box">
+
+  <input
+    type="text"
+    placeholder="Search for products..."
+  >
+
+  <button>
+    Search
+  </button>
+
+</div>
+
+<button
+  class="sell-button"
+  onclick="showSellerForm()"
+>
   Sell on OJA
 </button>
 
-<div class="cart" onclick="showCart()">
+<button
+  class="admin-button"
+  onclick="showAdminLogin()"
+>
+  Admin
+</button>
+
+<div
+  class="cart"
+  onclick="showCart()"
+>
   🛒 <span id="cart-count">0</span>
 </div>
 
-  </header>  <!-- HERO SECTION -->  <section class="hero"><h1>Shop More. Save More. Live More.</h1>
+  </header>  <!-- HERO -->  <section class="hero"><h1>
+  Shop More. Save More. Live More.
+</h1>
 
 <p>
   Discover amazing products from trusted sellers on OJA.
@@ -408,7 +599,9 @@
   Shop Now
 </button>
 
-  </section>  <!-- CATEGORIES -->  <section class="section"><h2>Shop by Category</h2>
+  </section>  <!-- CATEGORIES -->  <section class="section"><h2>
+  Shop by Category
+</h2>
 
 <div class="categories">
 
@@ -454,7 +647,12 @@
 
 </div>
 
-  </section>  <!-- PRODUCTS -->  <section class="section" id="products-section"><h2>Featured Products</h2>
+  </section>  <!-- PRODUCTS -->  <section
+    class="section"
+    id="products-section"
+  ><h2>
+  Featured Products
+</h2>
 
 <div class="products">
 
@@ -466,7 +664,9 @@
 
     <div class="product-info">
 
-      <h3>Smartphone</h3>
+      <h3>
+        Smartphone
+      </h3>
 
       <div class="price">
         $250
@@ -489,7 +689,9 @@
 
     <div class="product-info">
 
-      <h3>Fashion Sneakers</h3>
+      <h3>
+        Fashion Sneakers
+      </h3>
 
       <div class="price">
         $45
@@ -512,7 +714,9 @@
 
     <div class="product-info">
 
-      <h3>Wireless Headphones</h3>
+      <h3>
+        Wireless Headphones
+      </h3>
 
       <div class="price">
         $35
@@ -535,7 +739,9 @@
 
     <div class="product-info">
 
-      <h3>Smart Watch</h3>
+      <h3>
+        Smart Watch
+      </h3>
 
       <div class="price">
         $60
@@ -551,9 +757,14 @@
 
 </div>
 
-  </section>  <!-- CART PANEL -->  <div id="cart-panel" class="cart-panel"><div class="cart-header">
+  </section>  <!-- CART PANEL -->  <div
+    id="cart-panel"
+    class="cart-panel"
+  ><div class="cart-header">
 
-  <h2>🛒 Your OJA Cart</h2>
+  <h2>
+    🛒 Your OJA Cart
+  </h2>
 
   <button onclick="closeCart()">
     ✕
@@ -571,13 +782,21 @@
 
 </div>
 
-<button class="checkout-button" onclick="checkout()">
+<button
+  class="checkout-button"
+  onclick="checkout()"
+>
   Proceed to Checkout
 </button>
 
-  </div>  <!-- SELLER PANEL -->  <div id="seller-panel" class="seller-panel"><div class="seller-header">
+  </div>  <!-- SELLER PANEL -->  <div
+    id="seller-panel"
+    class="seller-panel"
+  ><div class="seller-header">
 
-  <h2>🏪 Sell on OJA</h2>
+  <h2>
+    🏪 Sell on OJA
+  </h2>
 
   <button onclick="closeSellerForm()">
     ✕
@@ -589,7 +808,9 @@
   Join OJA and reach more customers with your products.
 </p>
 
-<form id="seller-form" onsubmit="submitSellerForm(event)">
+<form
+  onsubmit="submitSellerForm(event)"
+>
 
   <label>
     Full Name
@@ -659,17 +880,390 @@
   <button
     type="submit"
     class="submit-seller"
-    id="submit-seller-button"
   >
     Submit Product
   </button>
 
+</form>
+
+  </div>  <!-- ADMIN LOGIN -->  <div
+    id="admin-login-panel"
+    class="admin-login-panel"
+  ><div class="admin-header">
+
+  <h2>
+    🔐 OJA Admin Login
+  </h2>
+
+  <button onclick="closeAdminLogin()">
+    ✕
+  </button>
+
+</div>
+
+<p>
+  Login to access the OJA Marketplace Administration Dashboard.
+</p>
+
+<form
+  onsubmit="adminLogin(event)"
+>
+
+  <label>
+    Username
+  </label>
+
+  <input
+    type="text"
+    id="admin-username"
+    placeholder="Enter username"
+    required
+  >
+
+  <label>
+    Password
+  </label>
+
+  <input
+    type="password"
+    id="admin-password"
+    placeholder="Enter password"
+    required
+  >
+
+  <button
+    type="submit"
+    class="admin-login-button"
+  >
+    Login to Dashboard
+  </button>
+
   <div
-    id="seller-status"
-    class="status-message"
-  ></div>
+    id="login-error"
+    class="login-error"
+  >
+    Incorrect username or password.
+  </div>
 
 </form>
+
+  </div>  <!-- ADMIN DASHBOARD -->  <div
+    id="admin-dashboard"
+    class="admin-dashboard"
+  ><div class="admin-header">
+
+  <h2>
+    🛠️ OJA Admin Dashboard
+  </h2>
+
+  <div>
+
+    <button
+      class="admin-logout"
+      onclick="adminLogout()"
+    >
+      Logout
+    </button>
+
+    <button onclick="closeAdminDashboard()">
+      ✕
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- DASHBOARD CARDS -->
+
+<div class="dashboard-cards">
+
+  <div class="dashboard-card">
+
+    <div class="icon">
+      🏪
+    </div>
+
+    <h3>
+      Total Sellers
+    </h3>
+
+    <strong>
+      0
+    </strong>
+
+  </div>
+
+
+  <div class="dashboard-card">
+
+    <div class="icon">
+      📦
+    </div>
+
+    <h3>
+      Total Products
+    </h3>
+
+    <strong>
+      4
+    </strong>
+
+  </div>
+
+
+  <div class="dashboard-card">
+
+    <div class="icon">
+      🛒
+    </div>
+
+    <h3>
+      Total Orders
+    </h3>
+
+    <strong>
+      0
+    </strong>
+
+  </div>
+
+
+  <div class="dashboard-card">
+
+    <div class="icon">
+      💰
+    </div>
+
+    <h3>
+      Total Sales
+    </h3>
+
+    <strong>
+      $0
+    </strong>
+
+  </div>
+
+</div>
+
+
+<!-- ADMIN MENU -->
+
+<div class="admin-menu">
+
+  <button onclick="showAdminSection('sellers-section')">
+    🏪 Seller Submissions
+  </button>
+
+  <button onclick="showAdminSection('products-section-admin')">
+    📦 Manage Products
+  </button>
+
+  <button onclick="showAdminSection('orders-section')">
+    🛒 Orders
+  </button>
+
+  <button onclick="showAdminSection('settings-section')">
+    ⚙️ Settings
+  </button>
+
+</div>
+
+
+<!-- SELLER SUBMISSIONS -->
+
+<div
+  id="sellers-section"
+  class="admin-section"
+>
+
+  <h3>
+    🏪 Recent Seller Submissions
+  </h3>
+
+  <table>
+
+    <thead>
+
+      <tr>
+
+        <th>
+          Seller
+        </th>
+
+        <th>
+          Product
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Price
+        </th>
+
+        <th>
+          Action
+        </th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr>
+
+        <td colspan="5">
+          No seller submissions yet.
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<div
+  id="products-section-admin"
+  class="admin-section"
+  style="display:none;"
+>
+
+  <h3>
+    📦 Manage Products
+  </h3>
+
+  <table>
+
+    <thead>
+
+      <tr>
+
+        <th>
+          Product
+        </th>
+
+        <th>
+          Price
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+          Action
+        </th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr>
+
+        <td>
+          Smartphone
+        </td>
+
+        <td>
+          $250
+        </td>
+
+        <td>
+          Published
+        </td>
+
+        <td>
+          <button class="approve-btn">
+            Edit
+          </button>
+
+          <button class="reject-btn">
+            Remove
+          </button>
+        </td>
+
+      </tr>
+
+      <tr>
+
+        <td>
+          Fashion Sneakers
+        </td>
+
+        <td>
+          $45
+        </td>
+
+        <td>
+          Published
+        </td>
+
+        <td>
+          <button class="approve-btn">
+            Edit
+          </button>
+
+          <button class="reject-btn">
+            Remove
+          </button>
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+
+
+<!-- ORDERS -->
+
+<div
+  id="orders-section"
+  class="admin-section"
+  style="display:none;"
+>
+
+  <h3>
+    🛒 Customer Orders
+  </h3>
+
+  <p>
+    No customer orders yet.
+  </p>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<div
+  id="settings-section"
+  class="admin-section"
+  style="display:none;"
+>
+
+  <h3>
+    ⚙️ OJA Settings
+  </h3>
+
+  <p>
+    Admin settings will be available here in the next version.
+  </p>
+
+</div>
 
   </div>  <!-- FOOTER -->  <footer><p>
   © 2026 OJA Marketplace. All Rights Reserved.
@@ -681,148 +1275,140 @@
 
   </footer>  <!-- JAVASCRIPT -->  <script>
 
-    /*
-      OJA GOOGLE APPS SCRIPT WEB APP URL
-    */
-
-    const GOOGLE_SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbwpNQIhVHQvx5nZwSSppvvPyqgLYwqNongTIxcjhaio1IgnfsKT4JOQ3DGZKiHoYenEGg/exec";
-
+    /* CART */
 
     let cart = [];
 
-
-    /* ADD PRODUCTS TO CART */
 
     document
       .querySelectorAll(".product button")
       .forEach(button => {
 
-        button.addEventListener("click", function() {
+        button.addEventListener(
+          "click",
+          function() {
 
-          const product =
-            this.closest(".product");
+            const product =
+              this.closest(".product");
 
-          const name =
-            product.querySelector("h3").textContent;
+            const name =
+              product
+                .querySelector("h3")
+                .textContent;
 
-          const priceText =
-            product.querySelector(".price").textContent;
+            const priceText =
+              product
+                .querySelector(".price")
+                .textContent;
 
-          const price =
-            parseFloat(
-              priceText.replace("$", "")
+            const price =
+              parseFloat(
+                priceText.replace("$", "")
+              );
+
+            cart.push({
+              name: name,
+              price: price
+            });
+
+            document
+              .getElementById("cart-count")
+              .textContent =
+              cart.length;
+
+            alert(
+              name +
+              " has been added to your cart! 🛒"
             );
 
-
-          cart.push({
-            name: name,
-            price: price
-          });
-
-
-          document
-            .getElementById("cart-count")
-            .textContent = cart.length;
-
-
-          alert(
-            name +
-            " has been added to your cart! 🛒"
-          );
-
-        });
+          }
+        );
 
       });
 
 
-    /* SHOW CART */
-
     function showCart() {
 
-      const panel =
-        document.getElementById("cart-panel");
-
-      panel.style.display = "block";
+      document
+        .getElementById("cart-panel")
+        .style.display =
+        "block";
 
       updateCart();
 
     }
 
 
-    /* CLOSE CART */
-
     function closeCart() {
 
       document
         .getElementById("cart-panel")
-        .style.display = "none";
+        .style.display =
+        "none";
 
     }
 
 
-    /* UPDATE CART */
-
     function updateCart() {
 
       const cartItems =
-        document.getElementById("cart-items");
+        document
+          .getElementById("cart-items");
 
       const cartTotal =
-        document.getElementById("cart-total");
-
+        document
+          .getElementById("cart-total");
 
       cartItems.innerHTML = "";
-
 
       if (cart.length === 0) {
 
         cartItems.innerHTML =
           "<p>Your cart is empty.</p>";
 
-        cartTotal.textContent = "0";
+        cartTotal.textContent =
+          "0";
 
         return;
 
       }
 
-
       let total = 0;
 
+      cart.forEach(
+        (item, index) => {
 
-      cart.forEach((item, index) => {
+          total +=
+            item.price;
 
-        total += item.price;
+          cartItems.innerHTML += `
 
+            <div class="cart-item">
 
-        cartItems.innerHTML += `
+              <div>
 
-          <div class="cart-item">
+                <strong>
+                  ${item.name}
+                </strong>
 
-            <div>
+                <br>
 
-              <strong>
-                ${item.name}
-              </strong>
+                $${item.price}
 
-              <br>
+              </div>
 
-              $${item.price}
+              <button
+                onclick="removeFromCart(${index})"
+              >
+                Remove
+              </button>
 
             </div>
 
-            <button
-              onclick="removeFromCart(${index})"
-            >
-              Remove
-            </button>
+          `;
 
-          </div>
-
-        `;
-
-      });
-
+        }
+      );
 
       cartTotal.textContent =
         total.toFixed(2);
@@ -830,28 +1416,28 @@
     }
 
 
-    /* REMOVE PRODUCT */
-
     function removeFromCart(index) {
 
-      cart.splice(index, 1);
-
+      cart.splice(
+        index,
+        1
+      );
 
       document
         .getElementById("cart-count")
-        .textContent = cart.length;
-
+        .textContent =
+        cart.length;
 
       updateCart();
 
     }
 
 
-    /* CHECKOUT */
-
     function checkout() {
 
-      if (cart.length === 0) {
+      if (
+        cart.length === 0
+      ) {
 
         alert(
           "Your cart is empty!"
@@ -861,7 +1447,6 @@
 
       }
 
-
       alert(
         "Checkout is coming soon! 🛍️"
       );
@@ -869,24 +1454,59 @@
     }
 
 
-    /* SHOW SELLER FORM */
+    /* SELLER FORM */
 
     function showSellerForm() {
 
       document
         .getElementById("seller-panel")
-        .style.display = "block";
+        .style.display =
+        "block";
 
     }
 
-
-    /* CLOSE SELLER FORM */
 
     function closeSellerForm() {
 
       document
         .getElementById("seller-panel")
-        .style.display = "none";
+        .style.display =
+        "none";
+
+    }
+
+
+    function submitSellerForm(event) {
+
+      event.preventDefault();
+
+      const sellerName =
+        document
+          .getElementById("seller-name")
+          .value;
+
+      const productName =
+        document
+          .getElementById("product-name")
+          .value;
+
+      alert(
+
+        "Thank you, " +
+        sellerName +
+        "!\n\n" +
+
+        "Your product '" +
+        productName +
+        "' has been submitted to OJA for review."
+
+      );
+
+      event
+        .target
+        .reset();
+
+      closeSellerForm();
 
     }
 
@@ -896,7 +1516,9 @@
     function scrollToProducts() {
 
       document
-        .getElementById("products-section")
+        .getElementById(
+          "products-section"
+        )
         .scrollIntoView({
           behavior: "smooth"
         });
@@ -904,223 +1526,178 @@
     }
 
 
-    /* SUBMIT SELLER FORM */
+    /* ADMIN LOGIN */
 
-    function submitSellerForm(event) {
+    function showAdminLogin() {
+
+      document
+        .getElementById(
+          "admin-login-panel"
+        )
+        .style.display =
+        "block";
+
+    }
+
+
+    function closeAdminLogin() {
+
+      document
+        .getElementById(
+          "admin-login-panel"
+        )
+        .style.display =
+        "none";
+
+    }
+
+
+    function adminLogin(event) {
 
       event.preventDefault();
 
-
-      const submitButton =
-        document.getElementById(
-          "submit-seller-button"
-        );
-
-      const statusMessage =
-        document.getElementById(
-          "seller-status"
-        );
-
-
-      const sellerName =
+      const username =
         document
-          .getElementById("seller-name")
-          .value
-          .trim();
+          .getElementById(
+            "admin-username"
+          )
+          .value;
 
-
-      const sellerPhone =
+      const password =
         document
-          .getElementById("seller-phone")
-          .value
-          .trim();
-
-
-      const sellerLocation =
-        document
-          .getElementById("seller-location")
-          .value
-          .trim();
-
-
-      const productName =
-        document
-          .getElementById("product-name")
-          .value
-          .trim();
-
-
-      const productDescription =
-        document
-          .getElementById("product-description")
-          .value
-          .trim();
-
-
-      const productPrice =
-        document
-          .getElementById("product-price")
-          .value
-          .trim();
+          .getElementById(
+            "admin-password"
+          )
+          .value;
 
 
       /*
-        Create a hidden form.
-        This sends the information directly
-        to the Google Apps Script Web App.
+        DEMO ADMIN LOGIN
+
+        Username:
+        admin
+
+        Password:
+        OJA2026
       */
 
-      const hiddenForm =
-        document.createElement("form");
-
-
-      hiddenForm.method = "POST";
-
-      hiddenForm.action =
-        GOOGLE_SCRIPT_URL;
-
-      hiddenForm.target =
-        "oja-hidden-frame";
-
-
-      const fields = {
-
-        name: sellerName,
-
-        phone: sellerPhone,
-
-        location: sellerLocation,
-
-        product: productName,
-
-        description: productDescription,
-
-        price: productPrice,
-
-        image: ""
-
-      };
-
-
-      for (
-        const key in fields
+      if (
+        username === "admin" &&
+        password === "OJA2026"
       ) {
 
-        const input =
-          document.createElement("input");
-
-        input.type = "hidden";
-
-        input.name = key;
-
-        input.value =
-          fields[key];
-
-        hiddenForm.appendChild(input);
-
-      }
-
-
-      /*
-        Create hidden iframe
-        to receive the response
-        without leaving the OJA website.
-      */
-
-      let iframe =
-        document.getElementById(
-          "oja-hidden-frame"
-        );
-
-
-      if (!iframe) {
-
-        iframe =
-          document.createElement("iframe");
-
-        iframe.name =
-          "oja-hidden-frame";
-
-        iframe.id =
-          "oja-hidden-frame";
-
-        iframe.style.display =
+        document
+          .getElementById(
+            "admin-login-panel"
+          )
+          .style.display =
           "none";
-
-        document.body.appendChild(
-          iframe
-        );
-
-      }
-
-
-      document.body.appendChild(
-        hiddenForm
-      );
-
-
-      submitButton.disabled =
-        true;
-
-      submitButton.textContent =
-        "Submitting...";
-
-
-      statusMessage.style.display =
-        "block";
-
-      statusMessage.style.background =
-        "#fff3cd";
-
-      statusMessage.style.color =
-        "#856404";
-
-      statusMessage.textContent =
-        "Submitting your product to OJA...";
-
-
-      hiddenForm.submit();
-
-
-      /*
-        Give Google Apps Script
-        time to process the submission.
-      */
-
-      setTimeout(function() {
-
-        statusMessage.style.background =
-          "#d4edda";
-
-        statusMessage.style.color =
-          "#155724";
-
-        statusMessage.textContent =
-
-          "Thank you, " +
-          sellerName +
-          "! 🎉 Your product '" +
-          productName +
-          "' has been submitted to OJA. Our team will review it and contact you.";
 
 
         document
           .getElementById(
-            "seller-form"
+            "admin-dashboard"
           )
-          .reset();
+          .style.display =
+          "block";
 
 
-        submitButton.disabled =
-          false;
+        document
+          .getElementById(
+            "login-error"
+          )
+          .style.display =
+          "none";
 
-        submitButton.textContent =
-          "Submit Product";
+
+        document
+          .getElementById(
+            "admin-username"
+          )
+          .value = "";
 
 
-        hiddenForm.remove();
+        document
+          .getElementById(
+            "admin-password"
+          )
+          .value = "";
 
-      }, 2000);
+      }
+
+      else {
+
+        document
+          .getElementById(
+            "login-error"
+          )
+          .style.display =
+          "block";
+
+      }
+
+    }
+
+
+    /* ADMIN LOGOUT */
+
+    function adminLogout() {
+
+      document
+        .getElementById(
+          "admin-dashboard"
+        )
+        .style.display =
+        "none";
+
+      alert(
+        "You have been logged out of the OJA Admin Dashboard."
+      );
+
+    }
+
+
+    function closeAdminDashboard() {
+
+      document
+        .getElementById(
+          "admin-dashboard"
+        )
+        .style.display =
+        "none";
+
+    }
+
+
+    /* ADMIN SECTIONS */
+
+    function showAdminSection(
+      sectionId
+    ) {
+
+      const sections =
+        document
+          .querySelectorAll(
+            ".admin-section"
+          );
+
+
+      sections.forEach(
+        section => {
+
+          section.style.display =
+            "none";
+
+        }
+      );
+
+
+      document
+        .getElementById(
+          sectionId
+        )
+        .style.display =
+        "block";
 
     }
 
