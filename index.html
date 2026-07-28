@@ -328,6 +328,15 @@
       cursor: not-allowed;
     }
 
+    .status-message {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 6px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
     footer {
       background: #063d27;
       color: white;
@@ -580,7 +589,7 @@
   Join OJA and reach more customers with your products.
 </p>
 
-<form onsubmit="submitSellerForm(event)">
+<form id="seller-form" onsubmit="submitSellerForm(event)">
 
   <label>
     Full Name
@@ -654,6 +663,11 @@
   >
     Submit Product
   </button>
+
+  <div
+    id="seller-status"
+    class="status-message"
+  ></div>
 
 </form>
 
@@ -877,7 +891,7 @@
     }
 
 
-    /* SHOP NOW BUTTON */
+    /* SHOP NOW */
 
     function scrollToProducts() {
 
@@ -890,9 +904,9 @@
     }
 
 
-    /* SUBMIT SELLER FORM TO GOOGLE SHEETS */
+    /* SUBMIT SELLER FORM */
 
-    async function submitSellerForm(event) {
+    function submitSellerForm(event) {
 
       event.preventDefault();
 
@@ -900,6 +914,11 @@
       const submitButton =
         document.getElementById(
           "submit-seller-button"
+        );
+
+      const statusMessage =
+        document.getElementById(
+          "seller-status"
         );
 
 
@@ -945,7 +964,26 @@
           .trim();
 
 
-      const sellerData = {
+      /*
+        Create a hidden form.
+        This sends the information directly
+        to the Google Apps Script Web App.
+      */
+
+      const hiddenForm =
+        document.createElement("form");
+
+
+      hiddenForm.method = "POST";
+
+      hiddenForm.action =
+        GOOGLE_SCRIPT_URL;
+
+      hiddenForm.target =
+        "oja-hidden-frame";
+
+
+      const fields = {
 
         name: sellerName,
 
@@ -964,77 +1002,125 @@
       };
 
 
-      submitButton.disabled = true;
+      for (
+        const key in fields
+      ) {
 
-      submitButton.textContent =
-        "Submitting...";
+        const input =
+          document.createElement("input");
+
+        input.type = "hidden";
+
+        input.name = key;
+
+        input.value =
+          fields[key];
+
+        hiddenForm.appendChild(input);
+
+      }
 
 
-      try {
+      /*
+        Create hidden iframe
+        to receive the response
+        without leaving the OJA website.
+      */
 
-        await fetch(
-          GOOGLE_SCRIPT_URL,
-          {
-
-            method: "POST",
-
-            mode: "no-cors",
-
-            headers: {
-              "Content-Type":
-                "text/plain;charset=utf-8"
-            },
-
-            body:
-              JSON.stringify(sellerData)
-
-          }
+      let iframe =
+        document.getElementById(
+          "oja-hidden-frame"
         );
 
 
-        alert(
+      if (!iframe) {
 
-          "Thank you, " +
-          sellerName +
-          "! 🎉\n\n" +
+        iframe =
+          document.createElement("iframe");
 
-          "Your product '" +
-          productName +
-          "' has been submitted successfully to OJA.\n\n" +
+        iframe.name =
+          "oja-hidden-frame";
 
-          "Our team will review your submission and contact you."
+        iframe.id =
+          "oja-hidden-frame";
 
-        );
+        iframe.style.display =
+          "none";
 
-
-        event.target.reset();
-
-        closeSellerForm();
-
-
-      } catch (error) {
-
-        console.error(
-          "Submission error:",
-          error
-        );
-
-
-        alert(
-
-          "Sorry, your submission could not be completed.\n\n" +
-
-          "Please check your internet connection and try again."
-
+        document.body.appendChild(
+          iframe
         );
 
       }
 
 
-      submitButton.disabled = false;
+      document.body.appendChild(
+        hiddenForm
+      );
+
+
+      submitButton.disabled =
+        true;
 
       submitButton.textContent =
-        "Submit Product";
+        "Submitting...";
+
+
+      statusMessage.style.display =
+        "block";
+
+      statusMessage.style.background =
+        "#fff3cd";
+
+      statusMessage.style.color =
+        "#856404";
+
+      statusMessage.textContent =
+        "Submitting your product to OJA...";
+
+
+      hiddenForm.submit();
+
+
+      /*
+        Give Google Apps Script
+        time to process the submission.
+      */
+
+      setTimeout(function() {
+
+        statusMessage.style.background =
+          "#d4edda";
+
+        statusMessage.style.color =
+          "#155724";
+
+        statusMessage.textContent =
+
+          "Thank you, " +
+          sellerName +
+          "! 🎉 Your product '" +
+          productName +
+          "' has been submitted to OJA. Our team will review it and contact you.";
+
+
+        document
+          .getElementById(
+            "seller-form"
+          )
+          .reset();
+
+
+        submitButton.disabled =
+          false;
+
+        submitButton.textContent =
+          "Submit Product";
+
+
+        hiddenForm.remove();
+
+      }, 2000);
 
     }
 
