@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>OJA | Shop More. Save More. Live More.</title>
-  /
+
   <style>
     * {
       margin: 0;
@@ -25,6 +25,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 15px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
@@ -40,7 +41,7 @@
     .search-box {
       flex: 1;
       max-width: 550px;
-      margin: 0 30px;
+      margin: 0 15px;
       display: flex;
     }
 
@@ -64,6 +65,18 @@
     .cart {
       font-size: 24px;
       cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .sell-button {
+      background: #087443;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
     }
 
     .hero {
@@ -175,6 +188,146 @@
       cursor: pointer;
     }
 
+    /* CART PANEL */
+
+    .cart-panel {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 90%;
+      max-width: 420px;
+      height: 100vh;
+      background: white;
+      z-index: 1000;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+    }
+
+    .cart-header button {
+      background: none;
+      border: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+      gap: 10px;
+    }
+
+    .cart-item button {
+      background: #d9534f;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cart-total {
+      font-size: 22px;
+      margin: 25px 0;
+    }
+
+    .checkout-button {
+      width: 100%;
+      padding: 15px;
+      background: #087443;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* SELLER PANEL */
+
+    .seller-panel {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 90%;
+      max-width: 450px;
+      height: 100vh;
+      background: white;
+      z-index: 1100;
+      padding: 20px;
+      overflow-y: auto;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+    }
+
+    .seller-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .seller-header h2 {
+      color: #087443;
+    }
+
+    .seller-header button {
+      background: none;
+      border: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .seller-panel p {
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .seller-panel label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .seller-panel input,
+    .seller-panel textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .seller-panel textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .submit-seller {
+      width: 100%;
+      margin-top: 25px;
+      padding: 15px;
+      background: #087443;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
     footer {
       background: #063d27;
       color: white;
@@ -183,9 +336,18 @@
       margin-top: 40px;
     }
 
+    footer p {
+      margin: 5px 0;
+    }
+
     @media (max-width: 700px) {
+
       header {
         flex-wrap: wrap;
+      }
+
+      .logo {
+        font-size: 24px;
       }
 
       .search-box {
@@ -198,97 +360,68 @@
       .hero h1 {
         font-size: 32px;
       }
-    }/* CART PANEL */
-.cart-panel {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 90%;
-    max-width: 420px;
-    height: 100vh;
-    background: white;
-    z-index: 1000;
-    box-shadow: -5px 0 20px rgba(0,0,0,0.3);
-    padding: 20px;
-    overflow-y: auto;
-}
 
-.cart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 15px;
-}
+      .hero p {
+        font-size: 16px;
+      }
 
-.cart-header button {
-    background: none;
-    border: none;
-    font-size: 25px;
-    cursor: pointer;
-}
+      .sell-button {
+        padding: 8px 10px;
+        font-size: 12px;
+      }
 
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.cart-item button {
-    background: #d9534f;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.cart-total {
-    font-size: 22px;
-    margin: 25px 0;
-}
-
-.checkout-button {
-    width: 100%;
-    padding: 15px;
-    background: #087443;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
+      .cart {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
+
     <div class="logo">OJA</div>
 
     <div class="search-box">
-        <input type="text" placeholder="Search for products...">
-        <button>Search</button>
+      <input type="text" placeholder="Search for products...">
+      <button>Search</button>
     </div>
 
     <button class="sell-button" onclick="showSellerForm()">
-        Sell on OJA
+      Sell on OJA
     </button>
 
     <div class="cart" onclick="showCart()">
-        🛒 <span id="cart-count">0</span>
+      🛒 <span id="cart-count">0</span>
     </div>
-</header>
+
+  </header>
+
+
+  <!-- HERO SECTION -->
+
   <section class="hero">
+
     <h1>Shop More. Save More. Live More.</h1>
-    <p>Discover amazing products from trusted sellers on OJA.</p>
-    <button>Shop Now</button>
+
+    <p>
+      Discover amazing products from trusted sellers on OJA.
+    </p>
+
+    <button>
+      Shop Now
+    </button>
+
   </section>
 
+
+  <!-- CATEGORIES -->
+
   <section class="section">
+
     <h2>Shop by Category</h2>
 
     <div class="categories">
@@ -334,195 +467,508 @@
       </div>
 
     </div>
+
   </section>
 
+
+  <!-- PRODUCTS -->
+
   <section class="section">
+
     <h2>Featured Products</h2>
 
     <div class="products">
 
       <div class="product">
-        <div class="product-image">📱</div>
+
+        <div class="product-image">
+          📱
+        </div>
+
         <div class="product-info">
+
           <h3>Smartphone</h3>
-          <div class="price">$250</div>
-          <button>Add to Cart</button>
+
+          <div class="price">
+            $250
+          </div>
+
+          <button>
+            Add to Cart
+          </button>
+
         </div>
+
       </div>
 
+
       <div class="product">
-        <div class="product-image">👟</div>
+
+        <div class="product-image">
+          👟
+        </div>
+
         <div class="product-info">
+
           <h3>Fashion Sneakers</h3>
-          <div class="price">$45</div>
-          <button>Add to Cart</button>
+
+          <div class="price">
+            $45
+          </div>
+
+          <button>
+            Add to Cart
+          </button>
+
         </div>
+
       </div>
 
+
       <div class="product">
-        <div class="product-image">🎧</div>
+
+        <div class="product-image">
+          🎧
+        </div>
+
         <div class="product-info">
+
           <h3>Wireless Headphones</h3>
-          <div class="price">$35</div>
-          <button>Add to Cart</button>
+
+          <div class="price">
+            $35
+          </div>
+
+          <button>
+            Add to Cart
+          </button>
+
         </div>
+
       </div>
+
 
       <div class="product">
-        <div class="product-image">⌚</div>
-        <div class="product-info">
-          <h3>Smart Watch</h3>
-          <div class="price">$60</div>
-          <button>Add to Cart</button>
+
+        <div class="product-image">
+          ⌚
         </div>
+
+        <div class="product-info">
+
+          <h3>Smart Watch</h3>
+
+          <div class="price">
+            $60
+          </div>
+
+          <button>
+            Add to Cart
+          </button>
+
+        </div>
+
       </div>
 
     </div>
+
   </section>
-<!-- CART PANEL -->
-<div id="cart-panel" class="cart-panel">
+
+
+  <!-- CART PANEL -->
+
+  <div id="cart-panel" class="cart-panel">
+
     <div class="cart-header">
-        <h2>🛒 Your OJA Cart</h2>
-        <button onclick="closeCart()">✕</button>
+
+      <h2>🛒 Your OJA Cart</h2>
+
+      <button onclick="closeCart()">
+        ✕
+      </button>
+
     </div>
-</div>
+
     <div id="cart-items"></div>
 
     <div class="cart-total">
-        <strong>Total: $<span id="cart-total">0</span></strong>
+
+      <strong>
+        Total: $<span id="cart-total">0</span>
+      </strong>
+
     </div>
 
     <button class="checkout-button" onclick="checkout()">
-        Proceed to Checkout
+      Proceed to Checkout
     </button>
-</div>
-  <!-- SELLER FORM -->
-<div id="seller-panel" class="seller-panel">
+
+  </div>
+
+
+  <!-- SELLER PANEL -->
+
+  <div id="seller-panel" class="seller-panel">
 
     <div class="seller-header">
-        <h2>🏪 Sell on OJA</h2>
-        <button onclick="closeSellerForm()">✕</button>
+
+      <h2>🏪 Sell on OJA</h2>
+
+      <button onclick="closeSellerForm()">
+        ✕
+      </button>
+
     </div>
 
-    <p>Join OJA and reach more customers with your products.</p>
+    <p>
+      Join OJA and reach more customers with your products.
+    </p>
 
     <form onsubmit="submitSellerForm(event)">
 
-        <label>Full Name</label>
-        <input type="text" id="seller-name" placeholder="Enter your full name" required>
+      <label>
+        Full Name
+      </label>
 
-        <label>Phone / WhatsApp Number</label>
-        <input type="tel" id="seller-phone" placeholder="08012345678" required>
+      <input
+        type="text"
+        id="seller-name"
+        placeholder="Enter your full name"
+        required
+      >
 
-        <label>Location</label>
-        <input type="text" id="seller-location" placeholder="City / State" required>
 
-        <label>Product Name</label>
-        <input type="text" id="product-name" placeholder="What are you selling?" required>
+      <label>
+        Phone / WhatsApp Number
+      </label>
 
-        <label>Product Description</label>
-        <textarea id="product-description" placeholder="Describe your product" required></textarea>
+      <input
+        type="tel"
+        id="seller-phone"
+        placeholder="08012345678"
+        required
+      >
 
-        <label>Your Expected Price</label>
-        <input type="number" id="product-price" placeholder="Enter price" required>
 
-        <button type="submit" class="submit-seller">
-            Submit Product
-        </button>
+      <label>
+        Location
+      </label>
+
+      <input
+        type="text"
+        id="seller-location"
+        placeholder="City / State"
+        required
+      >
+
+
+      <label>
+        Product Name
+      </label>
+
+      <input
+        type="text"
+        id="product-name"
+        placeholder="What are you selling?"
+        required
+      >
+
+
+      <label>
+        Product Description
+      </label>
+
+      <textarea
+        id="product-description"
+        placeholder="Describe your product"
+        required
+      ></textarea>
+
+
+      <label>
+        Your Expected Price
+      </label>
+
+      <input
+        type="number"
+        id="product-price"
+        placeholder="Enter price"
+        required
+      >
+
+
+      <button
+        type="submit"
+        class="submit-seller"
+      >
+        Submit Product
+      </button>
 
     </form>
-  
+
+  </div>
+
+
+  <!-- FOOTER -->
+
   <footer>
-    <p>© 2026 OJA Marketplace. All Rights Reserved.</p>
-    <p>Shop More. Save More. Live More.</p>
+
+    <p>
+      © 2026 OJA Marketplace. All Rights Reserved.
+    </p>
+
+    <p>
+      Shop More. Save More. Live More.
+    </p>
+
   </footer>
 
-</body>
-  </footer>
 
-<script>
-let cart = [];
+  <!-- JAVASCRIPT -->
 
-document.querySelectorAll(".product button").forEach(button => {
-    button.addEventListener("click", function() {
-        const product = this.closest(".product");
-        const name = product.querySelector("h3").textContent;
-        const priceText = product.querySelector(".price").textContent;
-        const price = parseFloat(priceText.replace("$", ""));
+  <script>
 
-        cart.push({
+    let cart = [];
+
+
+    /* ADD PRODUCTS TO CART */
+
+    document
+      .querySelectorAll(".product button")
+      .forEach(button => {
+
+        button.addEventListener("click", function() {
+
+          const product =
+            this.closest(".product");
+
+          const name =
+            product.querySelector("h3").textContent;
+
+          const priceText =
+            product.querySelector(".price").textContent;
+
+          const price =
+            parseFloat(
+              priceText.replace("$", "")
+            );
+
+
+          cart.push({
             name: name,
             price: price
+          });
+
+
+          document
+            .getElementById("cart-count")
+            .textContent = cart.length;
+
+
+          alert(
+            name +
+            " has been added to your cart! 🛒"
+          );
+
         });
 
-        document.getElementById("cart-count").textContent = cart.length;
+      });
 
-        alert(name + " has been added to your cart! 🛒");
-    });
-});
 
-function showCart() {
-    const panel = document.getElementById("cart-panel");
-    panel.style.display = "block";
-    updateCart();
-}
+    /* SHOW CART */
 
-function closeCart() {
-    document.getElementById("cart-panel").style.display = "none";
-}
+    function showCart() {
 
-function updateCart() {
-    const cartItems = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
+      const panel =
+        document.getElementById("cart-panel");
 
-    cartItems.innerHTML = "";
+      panel.style.display = "block";
 
-    if (cart.length === 0) {
-        cartItems.innerHTML = "<p>Your cart is empty.</p>";
-        cartTotal.textContent = "0";
-        return;
+      updateCart();
+
     }
 
-    let total = 0;
 
-    cart.forEach((item, index) => {
+    /* CLOSE CART */
+
+    function closeCart() {
+
+      document
+        .getElementById("cart-panel")
+        .style.display = "none";
+
+    }
+
+
+    /* UPDATE CART */
+
+    function updateCart() {
+
+      const cartItems =
+        document.getElementById("cart-items");
+
+      const cartTotal =
+        document.getElementById("cart-total");
+
+
+      cartItems.innerHTML = "";
+
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML =
+          "<p>Your cart is empty.</p>";
+
+        cartTotal.textContent = "0";
+
+        return;
+
+      }
+
+
+      let total = 0;
+
+
+      cart.forEach((item, index) => {
+
         total += item.price;
 
+
         cartItems.innerHTML += `
-            <div class="cart-item">
-                <div>
-                    <strong>${item.name}</strong>
-                    <br>
-                    $${item.price}
-                </div>
-                <button onclick="removeFromCart(${index})">
-                    Remove
-                </button>
+
+          <div class="cart-item">
+
+            <div>
+
+              <strong>
+                ${item.name}
+              </strong>
+
+              <br>
+
+              $${item.price}
+
             </div>
+
+            <button
+              onclick="removeFromCart(${index})"
+            >
+              Remove
+            </button>
+
+          </div>
+
         `;
-    });
 
-    cartTotal.textContent = total.toFixed(2);
-}
+      });
 
-function removeFromCart(index) {
-    cart.splice(index, 1);
 
-    document.getElementById("cart-count").textContent = cart.length;
+      cartTotal.textContent =
+        total.toFixed(2);
 
-    updateCart();
-}
-
-function checkout() {
-    if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
     }
 
-    alert("Checkout is coming soon! 🛍️");
-}
-</script>
+
+    /* REMOVE PRODUCT */
+
+    function removeFromCart(index) {
+
+      cart.splice(index, 1);
+
+
+      document
+        .getElementById("cart-count")
+        .textContent = cart.length;
+
+
+      updateCart();
+
+    }
+
+
+    /* CHECKOUT */
+
+    function checkout() {
+
+      if (cart.length === 0) {
+
+        alert(
+          "Your cart is empty!"
+        );
+
+        return;
+
+      }
+
+
+      alert(
+        "Checkout is coming soon! 🛍️"
+      );
+
+    }
+
+
+    /* SHOW SELLER FORM */
+
+    function showSellerForm() {
+
+      document
+        .getElementById("seller-panel")
+        .style.display = "block";
+
+    }
+
+
+    /* CLOSE SELLER FORM */
+
+    function closeSellerForm() {
+
+      document
+        .getElementById("seller-panel")
+        .style.display = "none";
+
+    }
+
+
+    /* SUBMIT SELLER FORM */
+
+    function submitSellerForm(event) {
+
+      event.preventDefault();
+
+
+      const sellerName =
+        document
+          .getElementById("seller-name")
+          .value;
+
+      const productName =
+        document
+          .getElementById("product-name")
+          .value;
+
+
+      alert(
+
+        "Thank you, " +
+        sellerName +
+        "!\n\n" +
+
+        "Your product '" +
+        productName +
+        "' has been submitted to OJA for review."
+
+      );
+
+
+      event.target.reset();
+
+
+      closeSellerForm();
+
+    }
+
+  </script>
 
 </body>
 </html>
-        </html>
