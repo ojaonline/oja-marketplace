@@ -385,7 +385,43 @@
         <h2>🛒 Your OJA Cart</h2>
         <button onclick="closeCart()">✕</button>
     </div>
+<!-- SELLER FORM -->
+<div id="seller-panel" class="seller-panel">
 
+    <div class="seller-header">
+        <h2>🏪 Sell on OJA</h2>
+        <button onclick="closeSellerForm()">✕</button>
+    </div>
+
+    <p>Join OJA and reach more customers with your products.</p>
+
+    <form onsubmit="submitSellerForm(event)">
+
+        <label>Full Name</label>
+        <input type="text" id="seller-name" placeholder="Enter your full name" required>
+
+        <label>Phone / WhatsApp Number</label>
+        <input type="tel" id="seller-phone" placeholder="08012345678" required>
+
+        <label>Location</label>
+        <input type="text" id="seller-location" placeholder="City / State" required>
+
+        <label>Product Name</label>
+        <input type="text" id="product-name" placeholder="What are you selling?" required>
+
+        <label>Product Description</label>
+        <textarea id="product-description" placeholder="Describe your product" required></textarea>
+
+        <label>Your Expected Price</label>
+        <input type="number" id="product-price" placeholder="Enter price" required>
+
+        <button type="submit" class="submit-seller">
+            Submit Product
+        </button>
+
+    </form>
+
+</div>
     <div id="cart-items"></div>
 
     <div class="cart-total">
