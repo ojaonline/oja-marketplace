@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>OJA | Shop More. Save More. Live More.</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 15px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #087443;
+    }
+
+    .search-box {
+      flex: 1;
+      max-width: 550px;
+      margin: 0 30px;
+      display: flex;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 13px 18px;
+      border: 1px solid #ddd;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+    }
+
+    .search-box button {
+      padding: 13px 20px;
+      background: #087443;
+      color: white;
+      border: none;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+    }
+
+    .cart {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #087443, #0b9256);
+      color: white;
+      padding: 70px 5%;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      margin-bottom: 25px;
+    }
+
+    .hero button {
+      padding: 14px 30px;
+      border: none;
+      background: #f5a623;
+      color: white;
+      border-radius: 7px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 40px 5%;
+    }
+
+    .section h2 {
+      margin-bottom: 25px;
+      color: #087443;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+    }
+
+    .category {
+      background: white;
+      padding: 25px 10px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .product-image {
+      height: 180px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: #087443;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .product button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #087443;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #063d27;
+      color: white;
+      padding: 30px 5%;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-wrap: wrap;
+      }
+
+      .search-box {
+        order: 3;
+        width: 100%;
+        margin: 15px 0 0;
+        max-width: none;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">OJA</div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search for products...">
+      <button>Search</button>
+    </div>
+
+    <div class="cart">🛒</div>
+  </header>
+
+  <section class="hero">
+    <h1>Shop More. Save More. Live More.</h1>
+    <p>Discover amazing products from trusted sellers on OJA.</p>
+    <button>Shop Now</button>
+  </section>
+
+  <section class="section">
+    <h2>Shop by Category</h2>
+
+    <div class="categories">
+
+      <div class="category">
+        <div class="category-icon">👗</div>
+        <p>Fashion</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">📱</div>
+        <p>Electronics</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🏠</div>
+        <p>Home & Kitchen</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">💄</div>
+        <p>Beauty & Health</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">⚽</div>
+        <p>Sports</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🚗</div>
+        <p>Cars & Vehicles</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🏡</div>
+        <p>Property</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🛠️</div>
+        <p>Services</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Featured Products</h2>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-image">📱</div>
+        <div class="product-info">
+          <h3>Smartphone</h3>
+          <div class="price">$250</div>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">👟</div>
+        <div class="product-info">
+          <h3>Fashion Sneakers</h3>
+          <div class="price">$45</div>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🎧</div>
+        <div class="product-info">
+          <h3>Wireless Headphones</h3>
+          <div class="price">$35</div>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-image">⌚</div>
+        <div class="product-info">
+          <h3>Smart Watch</h3>
+          <div class="price">$60</div>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 OJA Marketplace. All Rights Reserved.</p>
+    <p>Shop More. Save More. Live More.</p>
+  </footer>
+
+</body>
+        </html>
