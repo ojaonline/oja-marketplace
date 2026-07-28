@@ -1,5 +1,6 @@
 <!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>OJA | Shop More. Save More. Live More.</title><style>
 
 *{
@@ -222,6 +223,13 @@ overflow-y:auto;
 box-shadow:-5px 0 20px rgba(0,0,0,.3);
 }
 
+.admin-dashboard{
+width:100%;
+max-width:none;
+z-index:2000;
+background:#f5f7f6;
+}
+
 .cart-header,
 .seller-header,
 .admin-header{
@@ -340,26 +348,6 @@ margin-top:15px;
 text-align:center;
 }
 
-.admin-dashboard{
-width:100%;
-max-width:none;
-z-index:2000;
-background:#f5f7f6;
-}
-
-.admin-header h2{
-color:#087443;
-}
-
-.admin-logout{
-background:#d9534f;
-color:white;
-border:none;
-padding:8px 12px;
-border-radius:5px;
-margin-right:10px;
-}
-
 .dashboard-cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -472,29 +460,21 @@ background:#f5f7f6;
 color:#087443;
 }
 
-.approve-btn{
-background:#087443;
-color:white;
-border:none;
-padding:7px 10px;
-border-radius:5px;
-}
-
-.reject-btn{
-background:#d9534f;
-color:white;
-border:none;
-padding:7px 10px;
-border-radius:5px;
-margin-left:5px;
-}
-
 .delete-product{
 background:#d9534f;
 color:white;
 border:none;
 padding:7px 10px;
 border-radius:5px;
+}
+
+.admin-logout{
+background:#d9534f;
+color:white;
+border:none;
+padding:8px 12px;
+border-radius:5px;
+margin-right:10px;
 }
 
 footer{
@@ -546,7 +526,7 @@ font-size:20px;
 
 }
 
-</style></head><body><header><div class="logo">
+</style></head><body><!-- HEADER --><header><div class="logo">
 OJA
 </div><div class="search-box"><input
 type="text"
@@ -581,13 +561,13 @@ class="cart"
 onclick="showCart()"
 >
 🛒 <span id="cart-count">0</span>
-</div></header><section class="hero"><h1>
+</div></header><!-- HERO --><section class="hero"><h1>
 Shop More. Save More. Live More.
 </h1><p>
 Discover amazing products from trusted sellers on OJA.
 </p><button onclick="scrollToProducts()">
 Shop Now
-</button></section><section class="section"><h2>
+</button></section><!-- CATEGORIES --><section class="section"><h2>
 Shop by Category
 </h2><div class="categories"><div class="category">
 <div class="category-icon">👗</div>
@@ -613,7 +593,7 @@ Shop by Category
 </div><div class="category">
 <div class="category-icon">🛠️</div>
 <p>Services</p>
-</div></div></section><section
+</div></div></section><!-- PRODUCTS --><section
 class="section"
 id="products-section"
 ><h2>
@@ -621,47 +601,8 @@ Featured Products
 </h2><div
 class="products"
 id="products-container"
-><div class="product"><div class="product-image">
-📱
-</div><div class="product-info"><h3>
-Smartphone
-</h3><div class="product-category">
-Electronics
-</div><div class="price">
-$250
-</div><button onclick="addToCart('Smartphone',250)">
-Add to Cart
-</button></div></div><div class="product"><div class="product-image">
-👟
-</div><div class="product-info"><h3>
-Fashion Sneakers
-</h3><div class="product-category">
-Fashion
-</div><div class="price">
-$45
-</div><button onclick="addToCart('Fashion Sneakers',45)">
-Add to Cart
-</button></div></div><div class="product"><div class="product-image">
-🎧
-</div><div class="product-info"><h3>
-Wireless Headphones
-</h3><div class="product-category">
-Electronics
-</div><div class="price">
-$35
-</div><button onclick="addToCart('Wireless Headphones',35)">
-Add to Cart
-</button></div></div><div class="product"><div class="product-image">
-⌚
-</div><div class="product-info"><h3>
-Smart Watch
-</h3><div class="product-category">
-Electronics
-</div><div class="price">
-$60
-</div><button onclick="addToCart('Smart Watch',60)">
-Add to Cart
-</button></div></div></div></section><div
+>
+</div></section><!-- CART --><div
 id="cart-panel"
 class="cart-panel"
 ><div class="cart-header"><h2>
@@ -679,7 +620,7 @@ onclick="checkout()"
 Proceed to Checkout
 </button>
 
-</div><div
+</div><!-- SELLER PANEL --><div
 id="seller-panel"
 class="seller-panel"
 ><div class="seller-header"><h2>
@@ -753,7 +694,7 @@ class="submit-seller"
 Submit Product
 </button>
 
-</form></div><div
+</form></div><!-- ADMIN LOGIN --><div
 id="admin-login-panel"
 class="admin-login-panel"
 ><div class="admin-header"><h2>
@@ -796,7 +737,7 @@ id="login-error"
 class="login-error"
 >
 Incorrect username or password.
-</div></form></div><div
+</div></form></div><!-- ADMIN DASHBOARD --><div
 id="admin-dashboard"
 class="admin-dashboard"
 ><div class="admin-header"><h2>
@@ -812,7 +753,7 @@ Logout
 
 <button onclick="closeAdminDashboard()">
 ✕
-</button></div></div><div class="dashboard-cards"><div class="dashboard-card"><div class="icon">
+</button></div></div><!-- DASHBOARD CARDS --><div class="dashboard-cards"><div class="dashboard-card"><div class="icon">
 🏪
 </div><h3>
 Total Sellers
@@ -823,7 +764,7 @@ Total Sellers
 </div><h3>
 Total Products
 </h3><strong id="product-count">
-4
+0
 </strong></div><div class="dashboard-card"><div class="icon">
 🛒
 </div><h3>
@@ -836,15 +777,39 @@ Total Orders
 Total Sales
 </h3><strong>
 $0
-</strong></div></div><div class="admin-menu"><button onclick="showAdminSection('sellers-section')">
+</strong></div></div><!-- ADMIN MENU --><div class="admin-menu"><button
+onclick="showAdminSection('sellers-section')"
+
+«»
+
 🏪 Seller Submissions
-</button><button onclick="showAdminSection('products-section-admin')">
+</button>
+
+<button
+onclick="showAdminSection('products-section-admin')"
+
+«»
+
 📦 Manage Products
-</button><button onclick="showAdminSection('orders-section')">
+</button>
+
+<button
+onclick="showAdminSection('orders-section')"
+
+«»
+
 🛒 Orders
-</button><button onclick="showAdminSection('settings-section')">
+</button>
+
+<button
+onclick="showAdminSection('settings-section')"
+
+«»
+
 ⚙️ Settings
-</button></div><div
+</button>
+
+</div><!-- SELLERS --><div
 id="sellers-section"
 class="admin-section"
 ><h3>
@@ -859,9 +824,11 @@ Location
 Price
 </th><th>
 Action
-</th></tr></thead><tbody><tr><td colspan="5">
+</th></tr></thead><tbody
+id="seller-submissions-list"
+><tr><td colspan="5">
 No seller submissions yet.
-</td></tr></tbody></table></div><div
+</td></tr></tbody></table></div><!-- MANAGE PRODUCTS --><div
 id="products-section-admin"
 class="admin-section"
 style="display:none;"
@@ -876,18 +843,17 @@ onclick="toggleAddProductForm()"
 ➕ Add New Product
 </button>
 
-<div
+<!-- ADD PRODUCT FORM --><div
 id="add-product-form"
 class="add-product-form"
 ><h3>
-➕ Add New Product
+Add New Product
 </h3><label>
 Product Name
 </label><input
 type="text"
 id="new-product-name"
 placeholder="Enter product name"
-required
 
 «»
 
@@ -896,36 +862,35 @@ Product Price
 </label><input
 type="number"
 id="new-product-price"
-placeholder="Enter price"
-required
+placeholder="Enter selling price"
 
 «»
 
 <label>
 Product Category
-</label><select id="new-product-category"><option>
+</label><select id="new-product-category"><option value="Fashion">
 Fashion
-</option><option>
+</option><option value="Electronics">
 Electronics
-</option><option>
+</option><option value="Home & Kitchen">
 Home & Kitchen
-</option><option>
+</option><option value="Beauty & Health">
 Beauty & Health
-</option><option>
+</option><option value="Sports">
 Sports
-</option><option>
+</option><option value="Cars & Vehicles">
 Cars & Vehicles
-</option><option>
+</option><option value="Property">
 Property
-</option><option>
+</option><option value="Services">
 Services
 </option></select><label>
 Product Description
 </label><textarea
 id="new-product-description"
-placeholder="Describe the product"
+placeholder="Describe your product"
 ></textarea><label>
-Product Image
+Choose Product Image
 </label><input
 type="file"
 id="new-product-image"
@@ -938,17 +903,18 @@ onchange="previewProductImage(event)"
 id="image-preview"
 class="image-preview"
 >
-Select an image from your gallery
+Your selected image will appear here
 </div><button
+type="button"
 class="add-product-button"
 onclick="addNewProduct()"
 
 «»
 
-Add Product to OJA
+Publish Product
 </button>
 
-</div><table><thead><tr><th>
+</div><!-- PRODUCT TABLE --><table><thead><tr><th>
 Product
 </th><th>
 Category
@@ -960,7 +926,8 @@ Status
 Action
 </th></tr></thead><tbody
 id="admin-products-list"
-></tbody></table></div><div
+>
+</tbody></table></div><!-- ORDERS --><div
 id="orders-section"
 class="admin-section"
 style="display:none;"
@@ -968,26 +935,29 @@ style="display:none;"
 🛒 Customer Orders
 </h3><p>
 No customer orders yet.
-</p></div><div
+</p></div><!-- SETTINGS --><div
 id="settings-section"
 class="admin-section"
 style="display:none;"
 ><h3>
 ⚙️ OJA Settings
 </h3><p>
-Admin settings will be available here in the next version.
-</p></div></div><footer><p>
+Admin settings will be available here.
+</p></div></div><!-- FOOTER --><footer><p>
 © 2026 OJA Marketplace. All Rights Reserved.
 </p><p>
 Shop More. Save More. Live More.
 </p></footer><script>
 
 
-/* PRODUCT DATA */
+/* =========================
+PRODUCT DATA
+========================= */
 
 let products = [
 
 {
+id:1,
 name:"Smartphone",
 price:250,
 category:"Electronics",
@@ -996,6 +966,7 @@ image:"📱"
 },
 
 {
+id:2,
 name:"Fashion Sneakers",
 price:45,
 category:"Fashion",
@@ -1004,6 +975,7 @@ image:"👟"
 },
 
 {
+id:3,
 name:"Wireless Headphones",
 price:35,
 category:"Electronics",
@@ -1012,6 +984,7 @@ image:"🎧"
 },
 
 {
+id:4,
 name:"Smart Watch",
 price:60,
 category:"Electronics",
@@ -1022,492 +995,19 @@ image:"⌚"
 ];
 
 
-let selectedImage = null;
-
-
-/* CART */
-
 let cart=[];
 
+let selectedImage="";
 
-function addToCart(name,price){
 
-cart.push({
-name:name,
-price:price
-});
-
-document
-.getElementById("cart-count")
-.textContent=cart.length;
-
-alert(
-name+
-" has been added to your cart! 🛒"
-);
-
-}
-
-
-function showCart(){
-
-document
-.getElementById("cart-panel")
-.style.display="block";
-
-updateCart();
-
-}
-
-
-function closeCart(){
-
-document
-.getElementById("cart-panel")
-.style.display="none";
-
-}
-
-
-function updateCart(){
-
-const cartItems=
-document.getElementById("cart-items");
-
-const cartTotal=
-document.getElementById("cart-total");
-
-cartItems.innerHTML="";
-
-if(cart.length===0){
-
-cartItems.innerHTML=
-"<p>Your cart is empty.</p>";
-
-cartTotal.textContent="0";
-
-return;
-
-}
-
-let total=0;
-
-cart.forEach(
-(item,index)=>{
-
-total+=item.price;
-
-cartItems.innerHTML+=`
-
-<div class="cart-item">
-
-<div>
-
-<strong>
-${item.name}
-</strong>
-
-<br>
-
-$${item.price}
-
-</div>
-
-<button
-onclick="removeFromCart(${index})"
->
-Remove
-</button>
-
-</div>
-
-`;
-
-}
-);
-
-cartTotal.textContent=
-total.toFixed(2);
-
-}
-
-
-function removeFromCart(index){
-
-cart.splice(index,1);
-
-document
-.getElementById("cart-count")
-.textContent=cart.length;
-
-updateCart();
-
-}
-
-
-function checkout(){
-
-if(cart.length===0){
-
-alert(
-"Your cart is empty!"
-);
-
-return;
-
-}
-
-alert(
-"Checkout is coming soon! 🛍️"
-);
-
-}
-
-
-/* SELLER FORM */
-
-function showSellerForm(){
-
-document
-.getElementById("seller-panel")
-.style.display="block";
-
-}
-
-
-function closeSellerForm(){
-
-document
-.getElementById("seller-panel")
-.style.display="none";
-
-}
-
-
-function submitSellerForm(event){
-
-event.preventDefault();
-
-const sellerName=
-document
-.getElementById("seller-name")
-.value;
-
-const productName=
-document
-.getElementById("product-name")
-.value;
-
-alert(
-
-"Thank you, "+
-sellerName+
-"!\n\n"+
-"Your product '"+
-productName+
-"' has been submitted to OJA for review."
-
-);
-
-event.target.reset();
-
-closeSellerForm();
-
-}
-
-
-/* SHOP NOW */
-
-function scrollToProducts(){
-
-document
-.getElementById("products-section")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
-
-/* ADMIN LOGIN */
-
-function showAdminLogin(){
-
-document
-.getElementById("admin-login-panel")
-.style.display="block";
-
-}
-
-
-function closeAdminLogin(){
-
-document
-.getElementById("admin-login-panel")
-.style.display="none";
-
-}
-
-
-function adminLogin(event){
-
-event.preventDefault();
-
-const username=
-document
-.getElementById("admin-username")
-.value;
-
-const password=
-document
-.getElementById("admin-password")
-.value;
-
-
-if(
-username==="admin" &&
-password==="OJA2026"
-){
-
-document
-.getElementById("admin-login-panel")
-.style.display="none";
-
-document
-.getElementById("admin-dashboard")
-.style.display="block";
-
-document
-.getElementById("login-error")
-.style.display="none";
-
-renderAdminProducts();
-
-}
-
-else{
-
-document
-.getElementById("login-error")
-.style.display="block";
-
-}
-
-}
-
-
-function adminLogout(){
-
-document
-.getElementById("admin-dashboard")
-.style.display="none";
-
-}
-
-
-function closeAdminDashboard(){
-
-document
-.getElementById("admin-dashboard")
-.style.display="none";
-
-}
-
-
-/* ADMIN SECTIONS */
-
-function showAdminSection(sectionId){
-
-const sections=
-document.querySelectorAll(
-".admin-section"
-);
-
-sections.forEach(
-section=>{
-section.style.display="none";
-}
-);
-
-document
-.getElementById(sectionId)
-.style.display="block";
-
-}
-
-
-/* SHOW ADD PRODUCT FORM */
-
-function toggleAddProductForm(){
-
-const form=
-document.getElementById(
-"add-product-form"
-);
-
-if(
-form.style.display==="block"
-){
-
-form.style.display="none";
-
-}
-
-else{
-
-form.style.display="block";
-
-}
-
-}
-
-
-/* IMAGE PREVIEW */
-
-function previewProductImage(event){
-
-const file=
-event.target.files[0];
-
-if(!file){
-
-selectedImage=null;
-
-return;
-
-}
-
-const reader=
-new FileReader();
-
-reader.onload=function(e){
-
-selectedImage=
-e.target.result;
-
-document
-.getElementById("image-preview")
-.innerHTML=
-`
-<img
-src="${selectedImage}"
-alt="Product Preview"
->
-`;
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-
-/* ADD NEW PRODUCT */
-
-function addNewProduct(){
-
-const name=
-document
-.getElementById("new-product-name")
-.value
-.trim();
-
-const price=
-parseFloat(
-document
-.getElementById("new-product-price")
-.value
-);
-
-const category=
-document
-.getElementById("new-product-category")
-.value;
-
-const description=
-document
-.getElementById("new-product-description")
-.value
-.trim();
-
-
-if(!name || !price){
-
-alert(
-"Please enter the product name and price."
-);
-
-return;
-
-}
-
-
-const newProduct={
-
-name:name,
-
-price:price,
-
-category:category,
-
-description:
-description,
-
-image:
-selectedImage ||
-"📦"
-
-};
-
-
-products.push(
-newProduct
-);
-
-
-renderProducts();
-
-renderAdminProducts();
-
-
-document
-.getElementById("new-product-name")
-.value="";
-
-document
-.getElementById("new-product-price")
-.value="";
-
-document
-.getElementById("new-product-description")
-.value="";
-
-document
-.getElementById("new-product-image")
-.value="";
-
-selectedImage=null;
-
-document
-.getElementById("image-preview")
-.innerHTML=
-"Select an image from your gallery";
-
-
-alert(
-"Product added successfully to OJA! 🎉"
-);
-
-}
-
-
-/* DISPLAY PRODUCTS ON OJA */
+/* =========================
+DISPLAY PRODUCTS
+========================= */
 
 function renderProducts(){
 
 const container=
-document
-.getElementById(
+document.getElementById(
 "products-container"
 );
 
@@ -1515,10 +1015,11 @@ container.innerHTML="";
 
 
 products.forEach(
-(product,index)=>{
+(product)=>{
 
 let imageHTML=
 product.image;
+
 
 if(
 product.image &&
@@ -1557,11 +1058,11 @@ ${product.category}
 </div>
 
 <div class="price">
-$${product.price}
+$${Number(product.price).toLocaleString()}
 </div>
 
 <button
-onclick="addToCart('${product.name.replace(/'/g,"\\'")}',${product.price})"
+onclick="addToCart(${product.id})"
 >
 Add to Cart
 </button>
@@ -1575,6 +1076,7 @@ Add to Cart
 }
 );
 
+
 document
 .getElementById("product-count")
 .textContent=
@@ -1583,15 +1085,722 @@ products.length;
 }
 
 
-/* ADMIN PRODUCT LIST */
+/* =========================
+ADD TO CART
+========================= */
+
+function addToCart(productId){
+
+const product=
+products.find(
+item=>item.id===productId
+);
+
+if(!product){
+
+return;
+
+}
+
+cart.push(product);
+
+document
+.getElementById("cart-count")
+.textContent=
+cart.length;
+
+alert(
+product.name+
+" has been added to your cart! 🛒"
+);
+
+}
+
+
+/* =========================
+SHOW CART
+========================= */
+
+function showCart(){
+
+document
+.getElementById("cart-panel")
+.style.display=
+"block";
+
+updateCart();
+
+}
+
+
+function closeCart(){
+
+document
+.getElementById("cart-panel")
+.style.display=
+"none";
+
+}
+
+
+/* =========================
+UPDATE CART
+========================= */
+
+function updateCart(){
+
+const cartItems=
+document.getElementById(
+"cart-items"
+);
+
+const cartTotal=
+document.getElementById(
+"cart-total"
+);
+
+cartItems.innerHTML="";
+
+
+if(cart.length===0){
+
+cartItems.innerHTML=
+"<p>Your cart is empty.</p>";
+
+cartTotal.textContent=
+"0";
+
+return;
+
+}
+
+
+let total=0;
+
+
+cart.forEach(
+(item,index)=>{
+
+total+=Number(item.price);
+
+
+cartItems.innerHTML+=`
+
+<div class="cart-item">
+
+<div>
+
+<strong>
+${item.name}
+</strong>
+
+<br>
+
+$${Number(item.price).toLocaleString()}
+
+</div>
+
+<button
+onclick="removeFromCart(${index})"
+>
+Remove
+</button>
+
+</div>
+
+`;
+
+}
+);
+
+
+cartTotal.textContent=
+total.toLocaleString();
+
+}
+
+
+/* =========================
+REMOVE CART ITEM
+========================= */
+
+function removeFromCart(index){
+
+cart.splice(
+index,
+1
+);
+
+document
+.getElementById("cart-count")
+.textContent=
+cart.length;
+
+updateCart();
+
+}
+
+
+/* =========================
+CHECKOUT
+========================= */
+
+function checkout(){
+
+if(cart.length===0){
+
+alert(
+"Your cart is empty!"
+);
+
+return;
+
+}
+
+alert(
+"Checkout is coming soon! 🛍️"
+);
+
+}
+
+
+/* =========================
+SELLER FORM
+========================= */
+
+function showSellerForm(){
+
+document
+.getElementById("seller-panel")
+.style.display=
+"block";
+
+}
+
+
+function closeSellerForm(){
+
+document
+.getElementById("seller-panel")
+.style.display=
+"none";
+
+}
+
+
+function submitSellerForm(event){
+
+event.preventDefault();
+
+
+const sellerName=
+document
+.getElementById("seller-name")
+.value;
+
+const sellerPhone=
+document
+.getElementById("seller-phone")
+.value;
+
+const sellerLocation=
+document
+.getElementById("seller-location")
+.value;
+
+const productName=
+document
+.getElementById("product-name")
+.value;
+
+const productDescription=
+document
+.getElementById("product-description")
+.value;
+
+const productPrice=
+document
+.getElementById("product-price")
+.value;
+
+
+/*
+TEMPORARY SELLER SUBMISSION
+
+NEXT STEP:
+CONNECT THIS TO GOOGLE APPS SCRIPT
+AND GOOGLE SHEETS.
+*/
+
+
+const submission={
+
+sellerName:
+sellerName,
+
+sellerPhone:
+sellerPhone,
+
+sellerLocation:
+sellerLocation,
+
+productName:
+productName,
+
+productDescription:
+productDescription,
+
+productPrice:
+productPrice
+
+};
+
+
+let sellers=
+JSON.parse(
+localStorage.getItem(
+"ojaSellerSubmissions"
+)
+) || [];
+
+
+sellers.push(
+submission
+);
+
+
+localStorage.setItem(
+"ojaSellerSubmissions",
+JSON.stringify(sellers)
+);
+
+
+alert(
+
+"Thank you, "+
+sellerName+
+"!\n\n"+
+"Your product '"+ 
+productName+
+"' has been submitted to OJA for review."
+
+);
+
+
+event.target.reset();
+
+closeSellerForm();
+
+renderSellerSubmissions();
+
+}
+
+
+/* =========================
+ADMIN LOGIN
+========================= */
+
+function showAdminLogin(){
+
+document
+.getElementById(
+"admin-login-panel"
+)
+.style.display=
+"block";
+
+}
+
+
+function closeAdminLogin(){
+
+document
+.getElementById(
+"admin-login-panel"
+)
+.style.display=
+"none";
+
+}
+
+
+function adminLogin(event){
+
+event.preventDefault();
+
+
+const username=
+document
+.getElementById(
+"admin-username"
+)
+.value;
+
+const password=
+document
+.getElementById(
+"admin-password"
+)
+.value;
+
+
+if(
+username==="admin" &&
+password==="OJA2026"
+){
+
+document
+.getElementById(
+"admin-login-panel"
+)
+.style.display=
+"none";
+
+
+document
+.getElementById(
+"admin-dashboard"
+)
+.style.display=
+"block";
+
+
+document
+.getElementById(
+"login-error"
+)
+.style.display=
+"none";
+
+
+renderAdminProducts();
+
+renderSellerSubmissions();
+
+}
+
+else{
+
+document
+.getElementById(
+"login-error"
+)
+.style.display=
+"block";
+
+}
+
+}
+
+
+function adminLogout(){
+
+document
+.getElementById(
+"admin-dashboard"
+)
+.style.display=
+"none";
+
+}
+
+
+function closeAdminDashboard(){
+
+document
+.getElementById(
+"admin-dashboard"
+)
+.style.display=
+"none";
+
+}
+
+
+/* =========================
+ADMIN SECTIONS
+========================= */
+
+function showAdminSection(sectionId){
+
+const sections=
+document.querySelectorAll(
+".admin-section"
+);
+
+
+sections.forEach(
+section=>{
+
+section.style.display=
+"none";
+
+}
+);
+
+
+document
+.getElementById(
+sectionId
+)
+.style.display=
+"block";
+
+}
+
+
+/* =========================
+ADD PRODUCT FORM
+========================= */
+
+function toggleAddProductForm(){
+
+const form=
+document.getElementById(
+"add-product-form"
+);
+
+
+if(
+form.style.display===
+"block"
+){
+
+form.style.display=
+"none";
+
+}
+
+else{
+
+form.style.display=
+"block";
+
+}
+
+}
+
+
+/* =========================
+IMAGE PREVIEW
+========================= */
+
+function previewProductImage(event){
+
+const file=
+event.target.files[0];
+
+
+if(!file){
+
+selectedImage="";
+
+document
+.getElementById(
+"image-preview"
+)
+.innerHTML=
+"Your selected image will appear here";
+
+return;
+
+}
+
+
+const reader=
+new FileReader();
+
+
+reader.onload=
+function(e){
+
+selectedImage=
+e.target.result;
+
+
+document
+.getElementById(
+"image-preview"
+)
+.innerHTML=
+`
+<img
+src="${selectedImage}"
+alt="Product Preview"
+>
+`;
+
+};
+
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* =========================
+ADD NEW PRODUCT
+========================= */
+
+function addNewProduct(){
+
+const name=
+document
+.getElementById(
+"new-product-name"
+)
+.value
+.trim();
+
+
+const price=
+document
+.getElementById(
+"new-product-price"
+)
+.value;
+
+
+const category=
+document
+.getElementById(
+"new-product-category"
+)
+.value;
+
+
+const description=
+document
+.getElementById(
+"new-product-description"
+)
+.value
+.trim();
+
+
+if(!name){
+
+alert(
+"Please enter the product name."
+);
+
+return;
+
+}
+
+
+if(!price){
+
+alert(
+"Please enter the product price."
+);
+
+return;
+
+}
+
+
+if(!selectedImage){
+
+alert(
+"Please choose a product image from your gallery."
+);
+
+return;
+
+}
+
+
+const newProduct={
+
+id:
+Date.now(),
+
+name:
+name,
+
+price:
+Number(price),
+
+category:
+category,
+
+description:
+description,
+
+image:
+selectedImage
+
+};
+
+
+products.push(
+newProduct
+);
+
+
+renderProducts();
+
+renderAdminProducts();
+
+
+document
+.getElementById(
+"new-product-name"
+)
+.value="";
+
+
+document
+.getElementById(
+"new-product-price"
+)
+.value="";
+
+
+document
+.getElementById(
+"new-product-description"
+)
+.value="";
+
+
+document
+.getElementById(
+"new-product-image"
+)
+.value="";
+
+
+selectedImage="";
+
+
+document
+.getElementById(
+"image-preview"
+)
+.innerHTML=
+"Your selected image will appear here";
+
+
+alert(
+"Product published successfully on OJA! 🎉"
+);
+
+}
+
+
+/* =========================
+ADMIN PRODUCT LIST
+========================= */
 
 function renderAdminProducts(){
 
 const list=
-document
-.getElementById(
+document.getElementById(
 "admin-products-list"
 );
+
 
 list.innerHTML="";
 
@@ -1612,7 +1821,7 @@ ${product.category}
 </td>
 
 <td>
-$${product.price}
+$${Number(product.price).toLocaleString()}
 </td>
 
 <td>
@@ -1637,15 +1846,20 @@ Delete
 }
 );
 
+
 document
-.getElementById("product-count")
+.getElementById(
+"product-count"
+)
 .textContent=
 products.length;
 
 }
 
 
-/* DELETE PRODUCT */
+/* =========================
+DELETE PRODUCT
+========================= */
 
 function deleteProduct(index){
 
@@ -1654,20 +1868,24 @@ confirm(
 "Are you sure you want to remove this product from OJA?"
 );
 
+
 if(!confirmDelete){
 
 return;
 
 }
 
+
 products.splice(
 index,
 1
 );
 
+
 renderProducts();
 
 renderAdminProducts();
+
 
 alert(
 "Product removed successfully."
@@ -1676,53 +1894,212 @@ alert(
 }
 
 
-/* SEARCH PRODUCTS */
+/* =========================
+SELLER SUBMISSIONS
+========================= */
+
+function renderSellerSubmissions(){
+
+const list=
+document.getElementById(
+"seller-submissions-list"
+);
+
+
+let sellers=
+JSON.parse(
+localStorage.getItem(
+"ojaSellerSubmissions"
+)
+) || [];
+
+
+document
+.getElementById(
+"seller-count"
+)
+.textContent=
+sellers.length;
+
+
+if(
+sellers.length===0
+){
+
+list.innerHTML=
+`
+<tr>
+
+<td colspan="5">
+No seller submissions yet.
+</td>
+
+</tr>
+`;
+
+return;
+
+}
+
+
+list.innerHTML="";
+
+
+sellers.forEach(
+(seller,index)=>{
+
+list.innerHTML+=`
+
+<tr>
+
+<td>
+${seller.sellerName}
+<br>
+${seller.sellerPhone}
+</td>
+
+<td>
+${seller.productName}
+</td>
+
+<td>
+${seller.sellerLocation}
+</td>
+
+<td>
+$${Number(seller.productPrice).toLocaleString()}
+</td>
+
+<td>
+
+<button
+class="delete-product"
+onclick="deleteSeller(${index})"
+>
+Delete
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+}
+);
+
+}
+
+
+/* =========================
+DELETE SELLER
+========================= */
+
+function deleteSeller(index){
+
+let sellers=
+JSON.parse(
+localStorage.getItem(
+"ojaSellerSubmissions"
+)
+) || [];
+
+
+sellers.splice(
+index,
+1
+);
+
+
+localStorage.setItem(
+"ojaSellerSubmissions",
+JSON.stringify(sellers)
+);
+
+
+renderSellerSubmissions();
+
+}
+
+
+/* =========================
+SEARCH
+========================= */
 
 function searchProducts(){
 
 const search=
 document
-.getElementById("search-input")
+.getElementById(
+"search-input"
+)
 .value
 .toLowerCase()
 .trim();
 
-const productCards=
-document
-.querySelectorAll(
+
+const cards=
+document.querySelectorAll(
 "#products-container .product"
 );
 
-productCards.forEach(
+
+cards.forEach(
 (card,index)=>{
 
 const product=
 products[index];
 
-if(
+
+const matches=
 product.name
 .toLowerCase()
 .includes(search)
 ||
 product.category
 .toLowerCase()
-.includes(search)
-){
+.includes(search);
 
-card.style.display="block";
 
-}
-
-else{
-
-card.style.display="none";
-
-}
+card.style.display=
+matches
+?
+"block"
+:
+"none";
 
 }
 );
 
 }
+
+
+/* =========================
+SHOP NOW
+========================= */
+
+function scrollToProducts(){
+
+document
+.getElementById(
+"products-section"
+)
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+START WEBSITE
+========================= */
+
+renderProducts();
+
+renderAdminProducts();
+
+renderSellerSubmissions();
 
 
 </script></body>
